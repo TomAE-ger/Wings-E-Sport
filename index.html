@@ -8,27 +8,28 @@
   <meta name="description" content="Wings E‑Sports — Clan-Website für Matches, Roster, Tryouts und Community." />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg0: #0a0c1f;
-      --bg1: #1a1a3d;
-      --ink: #eaf0ff;
-      --muted: #a9b3d1;
-      --muted2: #7e89aa;
-      --line: rgba(234, 240, 255, 0.10);
-      --glass: rgba(255, 255, 255, 0.06);
+    :root{
+      /* Vibe: Dark, aerospace, premium-competitive (not neon-cliché) */
+      --bg0:#070A12;
+      --bg1:#0B0F1A;
+      --ink:#EAF0FF;
+      --muted:#A9B3D1;
+      --muted2:#7E89AA;
+      --line:rgba(234,240,255,.10);
+      --glass:rgba(255,255,255,.06);
 
-      --accent: #7c5cff; /* violett */
-      --accent2: #2fe6c8; /* türkis */
-      --accent3: #ffb86b; /* warm highlight */
-      --danger: #ff5571;
+      --accent:#7C5CFF;      /* violet */
+      --accent2:#2FE6C8;     /* teal */
+      --accent3:#FFB86B;     /* warm highlight */
+      --danger:#FF5571;
 
-      --shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
-      --shadow2: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
@@ -44,375 +45,641 @@
       --small: 13px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--ink);
-      background: 
-        radial-gradient(1200px 800px at 10% -10%, rgba(124, 92, 255, 0.3), transparent 60%),
-        radial-gradient(900px 650px at 90% 10%, rgba(47, 230, 200, 0.25), transparent 55%),
-        radial-gradient(850px 650px at 80% 95%, rgba(255, 107, 184, 0.2), transparent 55%),
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 650px at 90% 10%, rgba(47,230,200,.17), transparent 55%),
+        radial-gradient(850px 650px at 80% 95%, rgba(255,184,107,.12), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 40%, #060814 100%);
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--pad);
-    }
-    .sr-only {
-      position: absolute;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+    .sr-only{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
 
     /* Subtle grid texture */
-    .texture {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
+    .texture{
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
       background:
-        linear-gradient(to right, rgba(234, 240, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(234, 240, 255, 0.06) 1px, transparent 1px);
+        linear-gradient(to right, rgba(234,240,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(234,240,255,.06) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity: 0.12;
+      opacity:.12;
       mask-image: radial-gradient(900px 600px at 50% 20%, #000 30%, transparent 70%);
     }
 
     /* Navbar */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+    header{
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(7, 10, 18, 0.82), rgba(7, 10, 18, 0.48));
-      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(7,10,18,.82), rgba(7,10,18,.48));
+      border-bottom:1px solid var(--line);
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
       padding: 14px 0;
       gap: 14px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
       min-width: 210px;
     }
-    .mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
+    .mark{
+      width:38px; height:38px; border-radius: 14px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), transparent 55%),
-        linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(47, 230, 200, 0.85));
-      box-shadow: 0 18px 40px rgba(124, 92, 255, 0.22);
-      position: relative;
-      overflow: hidden;
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, rgba(124,92,255,.95), rgba(47,230,200,.85));
+      box-shadow: 0 18px 40px rgba(124,92,255,.22);
+      position:relative;
+      overflow:hidden;
     }
-    .mark:before {
-      content: "";
-      position: absolute;
-      inset: -20%;
+    .mark:before{
+      content:"";
+      position:absolute; inset:-20%;
       background:
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.55), transparent 45%),
-        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.18), transparent 55%);
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 45%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,.18), transparent 55%);
       transform: rotate(18deg);
-      opacity: 0.9;
+      opacity:.9;
     }
-    .brand strong {
-      font-family: "Fraunces", serif;
-      letter-spacing: 0.2px;
+    .brand strong{
+      font-family:"Fraunces", serif;
+      letter-spacing:.2px;
       font-size: 18px;
-      line-height: 1.1;
+      line-height:1.1;
     }
-    .brand span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .brand span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: none;
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:none;
       gap: 18px;
-      align-items: center;
+      align-items:center;
     }
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 600;
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
       font-size: 14px;
-      letter-spacing: 0.02em;
-      padding: 10px 10px;
+      letter-spacing:.02em;
+      padding:10px 10px;
       border-radius: 12px;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
     }
-    nav a:hover {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.06);
+    nav a:hover{
+      color:var(--ink);
+      background: rgba(255,255,255,.06);
       transform: translateY(-1px);
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .nav-actions{
+      display:flex; align-items:center; gap:10px;
     }
 
-    .btn {
-      appearance: none;
-      border: 0;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    .btn{
+      appearance:none; border:0; cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 11px 14px;
       border-radius: 999px;
       font-weight: 700;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-      user-select: none;
-      white-space: nowrap;
+      letter-spacing:.01em;
+      text-decoration:none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    .btn:active {
-      transform: translateY(1px) scale(0.99);
-    }
+    .btn:active{ transform: translateY(1px) scale(.99); }
 
-    .btn-primary {
-      color: #08101b;
+    .btn-primary{
+      color:#08101b;
       background:
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 55%),
-        linear-gradient(135deg, rgba(47, 230, 200, 1), rgba(124, 92, 255, 1));
-      box-shadow: 0 18px 45px rgba(47, 230, 200, 0.16), 0 18px 45px rgba(124, 92, 255, 0.16);
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.35), transparent 55%),
+        linear-gradient(135deg, rgba(47,230,200,1), rgba(124,92,255,1));
+      box-shadow: 0 18px 45px rgba(47,230,200,.16), 0 18px 45px rgba(124,92,255,.16);
     }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45), 0 14px 45px rgba(124, 92, 255, 0.18);
-    }
+    .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 22px 60px rgba(0,0,0,.45), 0 14px 45px rgba(124,92,255,.18); }
 
-    .btn-ghost {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+    .btn-ghost{
+      color:var(--ink);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
     }
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.16);
+    .btn-ghost:hover{
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.16);
       transform: translateY(-1px);
     }
 
-    .icon {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
+    .icon{
+      width:16px; height:16px; display:inline-block;
     }
 
-    .menu-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+    .menu-btn{
+      width:44px; height:44px; border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      display:inline-flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
     }
-    .menu-btn:hover {
-      background: rgba(255, 255, 255, 0.09);
-      transform: translateY(-1px);
-    }
-    .menu-btn:active {
-      transform: translateY(1px);
-    }
+    .menu-btn:hover{ background: rgba(255,255,255,.09); transform: translateY(-1px); }
+    .menu-btn:active{ transform: translateY(1px); }
 
     /* Mobile drawer */
-    .drawer {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      display: none;
+    .drawer{
+      position:fixed; inset:0; z-index:80;
+      display:none;
     }
-    .drawer[aria-hidden="false"] {
-      display: block;
-    }
-    .drawer .backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+    .drawer[aria-hidden="false"]{ display:block; }
+    .drawer .backdrop{
+      position:absolute; inset:0;
+      background: rgba(0,0,0,.55);
       backdrop-filter: blur(6px);
     }
-    .drawer .panel {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: min(420px, 92vw);
-      background: linear-gradient(180deg, rgba(11, 15, 26, 0.96), rgba(7, 10, 18, 0.96));
-      border-left: 1px solid rgba(255, 255, 255, 0.10);
+    .drawer .panel{
+      position:absolute; right: 0; top:0; height:100%;
+      width:min(420px, 92vw);
+      background: linear-gradient(180deg, rgba(11,15,26,.96), rgba(7,10,18,.96));
+      border-left:1px solid rgba(255,255,255,.10);
       box-shadow: var(--shadow);
       padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      display:flex; flex-direction:column; gap: 14px;
     }
-    .drawer .panel header {
-      position: static;
-      background: transparent;
-      border: 0;
-      backdrop-filter: none;
-      padding: 0;
+    .drawer .panel header{
+      position:static;
+      background:transparent;
+      border:0;
+      backdrop-filter:none;
+      padding:0;
     }
-    .drawer .panel .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+    .drawer .panel .top{
+      display:flex; align-items:center; justify-content:space-between; gap: 10px;
       padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .drawer nav a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .drawer nav a{
+      display:flex; justify-content:space-between; align-items:center;
       padding: 14px 12px;
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
       color: var(--ink);
     }
-    .drawer nav a small {
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .drawer nav a:hover {
-      background: rgba(255, 255, 255, 0.07);
-      transform: none;
-    }
+    .drawer nav a small{ color: var(--muted); font-weight: 600; }
+    .drawer nav a:hover{ background: rgba(255,255,255,.07); transform:none; }
 
     /* Hero */
-    main {
-      position: relative;
-    }
-    .hero {
+    main{ position:relative; }
+    .hero{
       padding: clamp(28px, 4.5vw, 70px) 0 18px;
-      position: relative;
-      text-align: center;
+      position:relative;
     }
-    .hero-grid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr;
       gap: 22px;
+      align-items:end;
     }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
       color: var(--muted);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
       font-size: 12px;
     }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
+    .dot{
+      width:8px; height:8px; border-radius: 999px;
       background: linear-gradient(135deg, var(--accent2), var(--accent));
-      box-shadow: 0 0 0 6px rgba(124, 92, 255, 0.10);
+      box-shadow: 0 0 0 6px rgba(47,230,200,.10);
     }
-    h1 {
-      font-family: "Fraunces", serif;
+    h1{
+      font-family:"Fraunces", serif;
       font-size: var(--h1);
-      line-height: 0.92;
+      line-height: .92;
       margin: 14px 0 12px;
       letter-spacing: -0.02em;
     }
-    .lead {
+    .lead{
       font-size: var(--p);
       color: var(--muted);
       line-height: 1.6;
       max-width: 60ch;
-      margin: 0 auto 18px;
+      margin: 0 0 18px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      align-items:center;
       margin-top: 10px;
     }
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.10);
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap: 12px;
+      margin-top: 16px;
       color: var(--muted2);
+      font-size: 13px;
+    }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(10px);
+    }
+    .pill b{ color: var(--ink); font-weight: 800; }
+
+    /* Wing banner visual */
+    .banner{
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      position:relative;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(820px 560px at 80% 20%, rgba(47,230,200,.22), transparent 55%),
+        radial-gradient(700px 520px at 60% 90%, rgba(255,184,107,.12), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      min-height: 360px;
+    }
+    .banner-inner{
+      padding: clamp(18px, 2.6vw, 28px);
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .banner-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .statline{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+    }
+    .stat .k{
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: var(--muted);
+      font-weight:800;
+    }
+    .stat .v{
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .01em;
+    }
+
+    .wing-svg{
+      position:absolute;
+      inset:-30px -50px auto auto;
+      width:min(560px, 92vw);
+      height:auto;
+      opacity:.95;
+      filter: drop-shadow(0 18px 60px rgba(0,0,0,.55));
+      transform: rotate(8deg);
+      pointer-events:none;
+    }
+
+    .ticker{
+      display:flex; gap: 10px; flex-wrap:wrap;
+      align-items:center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing:.06em;
       text-transform: uppercase;
       font-size: 12px;
     }
-    .pill {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 9px 11px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+    }
+    .chip i{
+      width: 10px; height: 10px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.10);
+    }
+
+    /* Sections */
+    section{
+      padding: 44px 0;
+    }
+    .section-head{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items:end;
+    }
+    h2{
+      font-family:"Fraunces", serif;
+      font-size: var(--h2);
+      line-height:1.02;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: var(--p);
+      line-height:1.6;
+      max-width: 70ch;
+    }
+
+    /* No generic card grids for features: use "ribbons" + alternating layout */
+    .ribbons{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .ribbon{
+      position:relative;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      overflow:hidden;
+      padding: 18px 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+    }
+    .ribbon:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(450px 180px at 20% 0%, rgba(124,92,255,.20), transparent 55%),
+        radial-gradient(420px 200px at 80% 110%, rgba(47,230,200,.14), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .ribbon > *{ position:relative; }
+    .ribbon h3{
+      margin:0;
+      font-size: var(--h3);
+      letter-spacing:.01em;
+    }
+    .ribbon p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: var(--p);
+    }
+    .ribbon .tagrow{
+      display:flex; flex-wrap:wrap; gap: 8px;
+      margin-top: 6px;
+    }
+    .tag{
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--ink);
+    }
+
+    /* Roster (gallery list -> cards allowed) */
+    .roster{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .player{
+      position:relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(420px 220px at 25% 20%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(420px 220px at 78% 85%, rgba(47,230,200,.14), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      padding: 16px;
+      display:flex; gap: 14px; align-items:center;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .player:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+      background:
+        radial-gradient(520px 260px at 25% 20%, rgba(124,92,255,.26), transparent 60%),
+        radial-gradient(520px 260px at 78% 85%, rgba(47,230,200,.18), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    .avatar{
+      width: 54px; height: 54px; border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.40), transparent 55%),
+        linear-gradient(135deg, rgba(47,230,200,.95), rgba(124,92,255,.95));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 16px 34px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background:
+        conic-gradient(from 150deg, rgba(255,255,255,.0), rgba(255,255,255,.18), rgba(255,255,255,.0));
+      transform: rotate(18deg);
+      opacity:.9;
+    }
+    .player h4{
+      margin: 0;
+      font-size: 16px;
+      letter-spacing:.01em;
+    }
+    .player .role{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.35;
+    }
+    .player .right{
+      margin-left:auto;
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .badge{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      color: var(--ink);
+    }
+    .badge.alt{
+      border-color: rgba(47,230,200,.26);
+      background: rgba(47,230,200,.10);
+    }
+
+    /* Tryouts */
+    .tryouts{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(255,184,107,.14), transparent 60%),
+        radial-gradient(900px 520px at 90% 100%, rgba(124,92,255,.18), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .tryouts-inner{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: clamp(18px, 3vw, 28px);
+    }
+    .form{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
       backdrop-filter: blur(10px);
     }
-    .pill b {
+    label{ font-weight: 800; letter-spacing:.01em; font-size: 13px; color: var(--muted); }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
       color: var(--ink);
-      font-weight: 800;
+      outline:none;
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(47,230,200,.35);
+      background: rgba(255,255,255,.08);
+    }
+    .form-row{ display:grid; grid-template-columns: 1fr; gap: 10px; }
+    .help{
+      margin:0;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height:1.55;
     }
 
-    /* Logo image */
-    .logo {
-      max-width: 320px;
-      width: 80vw;
-      height: auto;
-      margin: 0 auto 24px;
-      filter: drop-shadow(0 0 10px rgba(124, 92, 255, 0.8)) drop-shadow(0 0 20px rgba(47, 230, 200, 0.8));
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.15);
-      padding: 12px;
+    /* Footer */
+    footer{
+      padding: 34px 0 46px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+    }
+    .foot{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .foot a{ color: var(--ink); text-decoration:none; }
+    .foot a:hover{ text-decoration:underline; }
+    .fine{
+      font-size: 12px;
+      color: var(--muted2);
+      line-height:1.6;
     }
 
-    /* Rest der Seite bleibt unverändert */
+    /* Reveal animation */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      filter: blur(4px);
+    }
+    .reveal.in{
+      animation: rise .72s cubic-bezier(.2,.85,.2,1) forwards;
+    }
+    @keyframes rise{
+      to{ opacity:1; transform: translateY(0); filter: blur(0); }
+    }
+
+    /* Responsive */
+    @media (min-width: 860px){
+      nav ul{ display:flex; }
+      .menu-btn{ display:none; }
+
+      .hero-grid{
+        grid-template-columns: 1.05fr .95fr;
+        gap: 26px;
+        align-items:stretch;
+      }
+      .banner{ min-height: 520px; }
+      .statline{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .section-head{
+        grid-template-columns: .95fr 1.05fr;
+        gap: 22px;
+      }
+      .ribbon{
+        grid-template-columns: 1.2fr .8fr;
+        align-items:center;
+        padding: 20px 22px;
+      }
+      .ribbon .tagrow{ justify-content:flex-end; }
+      .roster{
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .tryouts-inner{
+        grid-template-columns: 1.15fr .85fr;
+        align-items:start;
+      }
+      .form-row{ grid-template-columns: 1fr 1fr; }
+      .foot{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; filter:none; }
+      .reveal.in{ animation:none; }
+      *{ scroll-behavior:auto !important; }
+    }
   </style>
 </head>
 
@@ -442,20 +709,20 @@
         <div class="nav-actions">
           <a class="btn btn-ghost" href="#tryouts">
             <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2l2.2 6.6H21l-5.4 4 2.1 6.4L12 15.7 6.3 19l2.1-6.4L3 8.6h6.8L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M12 2l2.2 6.6H21l-5.4 4 2.1 6.4L12 15.7 6.3 19l2.1-6.4L3 8.6h6.8L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
             </svg>
             Beitreten
           </a>
           <a class="btn btn-primary" href="#contact">
             <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 8.5l-9 6-9-6V6.5a2 2 0 012-2h14a2 2 0 012 2v2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-              <path d="M3 10v7.5a2 2 0 002 2h14a2 2 0 002-2V10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M21 8.5l-9 6-9-6V6.5a2 2 0 012-2h14a2 2 0 012 2v2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M3 10v7.5a2 2 0 002 2h14a2 2 0 002-2V10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
             </svg>
             Schreib uns
           </a>
           <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
         </div>
@@ -478,7 +745,7 @@
           </div>
           <button class="menu-btn" id="closeBtn" aria-label="Menü schließen">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
         </div>
@@ -503,116 +770,446 @@
   <main id="top">
     <section class="hero">
       <div class="wrap">
-        <img src="logo.png" alt="Wings E-Sports Clan Logo" class="logo" />
         <div class="hero-grid">
           <div>
-            <div class="eyebrow reveal" style="animation-delay: 0.05s">
+            <div class="eyebrow reveal" style="animation-delay:.05s">
               <span class="dot" aria-hidden="true"></span>
               <span>Wings E‑Sports • 2026 Season</span>
             </div>
 
-            <h1 class="reveal" style="animation-delay: 0.12s">
-              Flieg höher.<br />
+            <h1 class="reveal" style="animation-delay:.12s">
+              Flieg höher.<br/>
               Spiel smarter.
             </h1>
 
-            <p class="lead reveal" style="animation-delay: 0.18s">
+            <p class="lead reveal" style="animation-delay:.18s">
               Wir sind <b>Wings E‑Sports</b> — ein Clan, der Competitive ernst nimmt, aber Community noch ernster.
               Struktur, Scrims, Analyse und ein Team‑Mindset, das dich wirklich besser macht.
             </p>
 
-            <div class="hero-actions reveal" style="animation-delay: 0.26s">
+            <div class="hero-actions reveal" style="animation-delay:.26s">
               <a class="btn btn-primary" href="#tryouts">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M14 3l7 7-9 9H5v-7l9-9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                  <path d="M13 4l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <path d="M14 3l7 7-9 9H5v-7l9-9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M13 4l7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
                 Tryout bewerben
               </a>
               <a class="btn btn-ghost" href="#roster">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+                  <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
                 </svg>
                 Roster ansehen
               </a>
             </div>
 
-            <div class="meta-row reveal" style="animation-delay: 0.32s">
+            <div class="meta-row reveal" style="animation-delay:.32s">
               <div class="pill"><b>Disziplin</b> <span>Scrims + Review</span></div>
               <div class="pill"><b>Community</b> <span>Events & Coaching</span></div>
               <div class="pill"><b>Ambition</b> <span>Turniere & Ligen</span></div>
             </div>
           </div>
+
+          <aside class="banner reveal" style="animation-delay:.16s" aria-label="Wings Visual & Kennzahlen">
+            <!-- Decorative wing SVG -->
+            <svg class="wing-svg" viewBox="0 0 820 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="120" y1="40" x2="720" y2="500" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="rgba(47,230,200,.95)"/>
+                  <stop offset="0.55" stop-color="rgba(124,92,255,.92)"/>
+                  <stop offset="1" stop-color="rgba(255,184,107,.75)"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="80" y1="120" x2="780" y2="420" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="rgba(255,255,255,.35)"/>
+                  <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+                </linearGradient>
+              </defs>
+              <path d="M96 346c120-210 320-294 520-282 42 2 84 11 126 26-74 10-142 42-204 92-94 76-138 176-176 276-54-10-108-34-160-76-52-42-86-86-106-136z"
+                    fill="url(#g1)" opacity=".92"/>
+              <path d="M150 346c122-170 300-238 458-224 44 4 80 12 112 22-68 12-126 42-172 80-74 62-116 140-150 220-44-12-88-34-132-70-34-28-60-58-78-88z"
+                    fill="url(#g2)" opacity=".7"/>
+              <path d="M120 360c64-66 122-108 192-138M176 404c72-72 142-118 238-154M252 438c86-86 164-136 280-174"
+                    stroke="rgba(255,255,255,.24)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+
+            <div class="banner-inner">
+              <div class="banner-top">
+                <div>
+                  <div style="font-weight:900; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-size:12px;">
+                    Team Dashboard
+                  </div>
+                  <div style="margin-top:8px; font-family:'Fraunces',serif; font-size: clamp(18px, 2.2vw, 24px); letter-spacing:-.01em;">
+                    Roster‑Fokus, saubere Calls, klare Prozesse.
+                  </div>
+                </div>
+                <div class="badge alt">LIVE</div>
+              </div>
+
+              <div class="statline" aria-label="Kennzahlen">
+                <div class="stat">
+                  <div class="k">Core Value</div>
+                  <div class="v">Teamplay & Review</div>
+                </div>
+                <div class="stat">
+                  <div class="k">Tryouts</div>
+                  <div class="v">Offen (limited)</div>
+                </div>
+                <div class="stat">
+                  <div class="k">Scrim Slots</div>
+                  <div class="v">3–5 / Woche</div>
+                </div>
+                <div class="stat">
+                  <div class="k">Region</div>
+                  <div class="v">EU (DE/AT/CH)</div>
+                </div>
+              </div>
+
+              <div class="ticker" aria-label="Disziplinen">
+                <span class="chip"><i aria-hidden="true"></i> Rocket League</span>
+                <span class="chip"><i aria-hidden="true"></i> Valorant</span>
+                <span class="chip"><i aria-hidden="true"></i> Community Events</span>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- Weitere Sektionen wie Mission, Roster, Tryouts, Kontakt können hier folgen -->
+    <section id="mission">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="reveal">Mission: Kein Chaos. Nur Progress.</h2>
+          <p class="sub reveal" style="animation-delay:.06s">
+            Wings E‑Sports ist für Spieler gedacht, die Bock auf Struktur haben: feste Zeiten, klare Rollen,
+            respektvolle Kommunikation und ein Framework, das Leistung messbar macht.
+          </p>
+        </div>
 
+        <div class="ribbons">
+          <article class="ribbon reveal" style="animation-delay:.04s">
+            <div>
+              <h3>Competitive First — aber menschlich</h3>
+              <p>
+                Wir pushen Rank & Turniere mit Review‑Routinen, ohne Toxic‑Kultur. Fehler sind Daten — kein Drama.
+              </p>
+            </div>
+            <div class="tagrow" aria-label="Schwerpunkte">
+              <span class="tag">Scrims</span>
+              <span class="tag">VOD Review</span>
+              <span class="tag">Comms</span>
+            </div>
+          </article>
+
+          <article class="ribbon reveal" style="animation-delay:.10s">
+            <div>
+              <h3>Community, die sich lohnt</h3>
+              <p>
+                Interne Cups, Duo‑Nights, Trainingspläne — plus ein Discord, der sich wie ein Zuhause anfühlt.
+              </p>
+            </div>
+            <div class="tagrow">
+              <span class="tag">Events</span>
+              <span class="tag">Mentoring</span>
+              <span class="tag">Clips</span>
+            </div>
+          </article>
+
+          <article class="ribbon reveal" style="animation-delay:.16s">
+            <div>
+              <h3>Brand & Content mit Stil</h3>
+              <p>
+                Wings steht für ein cleanes, aviation‑inspiriertes Design. Wenn du Content machst, unterstützen wir dich mit Assets & Konzepten.
+              </p>
+            </div>
+            <div class="tagrow">
+              <span class="tag">Branding</span>
+              <span class="tag">Overlays</span>
+              <span class="tag">Highlights</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="roster">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="reveal">Roster</h2>
+          <p class="sub reveal" style="animation-delay:.06s">
+            Trage hier eure echten Namen ein. Aktuell sind es Platzhalter — so kannst du die Seite sofort nutzen.
+          </p>
+        </div>
+
+        <div class="roster" role="list">
+          <article class="player reveal" role="listitem" style="animation-delay:.05s">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <h4>Wings — Captain</h4>
+              <p class="role">IGL • Struktur • Calls • Review‑Lead</p>
+            </div>
+            <div class="right" aria-label="Tags">
+              <span class="badge alt">Core</span>
+              <span class="badge">Leader</span>
+            </div>
+          </article>
+
+          <article class="player reveal" role="listitem" style="animation-delay:.09s">
+            <div class="avatar" aria-hidden="true" style="background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.40), transparent 55%), linear-gradient(135deg, rgba(255,184,107,.95), rgba(124,92,255,.95));"></div>
+            <div>
+              <h4>Nova</h4>
+              <p class="role">Entry • Tempo • First Contact</p>
+            </div>
+            <div class="right">
+              <span class="badge">Aggro</span>
+              <span class="badge alt">Starter</span>
+            </div>
+          </article>
+
+          <article class="player reveal" role="listitem" style="animation-delay:.13s">
+            <div class="avatar" aria-hidden="true" style="background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.40), transparent 55%), linear-gradient(135deg, rgba(47,230,200,.95), rgba(255,85,113,.85));"></div>
+            <div>
+              <h4>Orbit</h4>
+              <p class="role">Support • Setup • Utility</p>
+            </div>
+            <div class="right">
+              <span class="badge">Support</span>
+              <span class="badge alt">Clutch</span>
+            </div>
+          </article>
+
+          <article class="player reveal" role="listitem" style="animation-delay:.17s">
+            <div class="avatar" aria-hidden="true" style="background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.40), transparent 55%), linear-gradient(135deg, rgba(124,92,255,.95), rgba(20,24,60,.95));"></div>
+            <div>
+              <h4>Pulse</h4>
+              <p class="role">Flex • Adaptation • Mid‑Round</p>
+            </div>
+            <div class="right">
+              <span class="badge">Flex</span>
+              <span class="badge alt">Analyst</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tryouts">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="reveal">Tryouts</h2>
+          <p class="sub reveal" style="animation-delay:.06s">
+            Bewerbungsformular (Demo). In echt würdest du das später an ein Backend oder Google Form anbinden.
+            Aktuell zeigt es eine Bestätigung direkt auf der Seite.
+          </p>
+        </div>
+
+        <div class="tryouts reveal" style="animation-delay:.10s">
+          <div class="tryouts-inner">
+            <div>
+              <h3 style="margin:0 0 8px; font-size: var(--h3);">Was wir suchen</h3>
+              <p class="help" style="margin:0 0 14px;">
+                Team‑Mindset, stabile Zeiten, Lernwille. Kein Ego — nur Progress. Wenn du tryoutest, erwarte
+                eine kurze Kennenlern‑Session + 1–2 Scrims.
+              </p>
+
+              <div class="ribbons" style="gap:10px;">
+                <div class="ribbon" style="padding:16px 16px;">
+                  <div>
+                    <h3 style="margin:0; font-size: 18px;">Minimum</h3>
+                    <p style="margin-top:6px;">Solide Mechanics + kommunikationsfähig. Rank/Level kannst du selbst definieren.</p>
+                  </div>
+                  <div class="tagrow" style="justify-content:flex-start;">
+                    <span class="tag">Pünktlich</span>
+                    <span class="tag">Respekt</span>
+                    <span class="tag">Review</span>
+                  </div>
+                </div>
+                <div class="ribbon" style="padding:16px 16px;">
+                  <div>
+                    <h3 style="margin:0; font-size: 18px;">Pluspunkte</h3>
+                    <p style="margin-top:6px;">VOD‑Routine, Turniererfahrung, Content‑Skills, Coachability.</p>
+                  </div>
+                  <div class="tagrow" style="justify-content:flex-start;">
+                    <span class="tag">Turniere</span>
+                    <span class="tag">IGL</span>
+                    <span class="tag">Creator</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="form" id="tryoutForm">
+              <div class="form-row">
+                <div>
+                  <label for="name">Name / Gamertag</label>
+                  <input id="name" name="name" autocomplete="nickname" placeholder="z.B. WingsCaptain" required />
+                </div>
+                <div>
+                  <label for="game">Game</label>
+                  <select id="game" name="game" required>
+                    <option value="" selected disabled>Bitte wählen</option>
+                    <option>Rocket League</option>
+                    <option>Valorant</option>
+                    <option>Fortnite</option>
+                    <option>Andere</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label for="rank">Rank / Level</label>
+                  <input id="rank" name="rank" placeholder="z.B. GC1 / Ascendant / ..." />
+                </div>
+                <div>
+                  <label for="time">Verfügbarkeit</label>
+                  <input id="time" name="time" placeholder="z.B. Mo/Mi/Fr ab 19:00" />
+                </div>
+              </div>
+
+              <div>
+                <label for="about">Kurz über dich</label>
+                <textarea id="about" name="about" placeholder="Was ist dein Ziel? Wie spielst du im Team?"></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center;">
+                Bewerbung senden
+              </button>
+
+              <p class="help" id="formStatus" role="status" aria-live="polite" style="margin:0;"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="reveal">Kontakt</h2>
+          <p class="sub reveal" style="animation-delay:.06s">
+            Ersetze die Links durch eure echten Socials (Discord, TikTok, Twitch, YouTube, Instagram).
+          </p>
+        </div>
+
+        <div class="ribbons">
+          <article class="ribbon reveal" style="animation-delay:.06s">
+            <div>
+              <h3>Discord (Haupt‑Hub)</h3>
+              <p>Scrims organisieren, Rollen vergeben, Events planen — alles an einem Ort.</p>
+            </div>
+            <div class="tagrow" style="justify-content:flex-end;">
+              <a class="btn btn-ghost" href="#" onclick="return false;" aria-label="Discord Link (Platzhalter)">Discord Link</a>
+            </div>
+          </article>
+
+          <article class="ribbon reveal" style="animation-delay:.12s">
+            <div>
+              <h3>Socials & Content</h3>
+              <p>Highlights, Clips, Turnier‑Updates. Wenn ihr wollt, baue ich euch gern eine News‑Sektion dazu.</p>
+            </div>
+            <div class="tagrow" style="justify-content:flex-end;">
+              <a class="btn btn-ghost" href="#" onclick="return false;" aria-label="TikTok Link (Platzhalter)">TikTok</a>
+              <a class="btn btn-ghost" href="#" onclick="return false;" aria-label="Twitch Link (Platzhalter)">Twitch</a>
+              <a class="btn btn-ghost" href="#" onclick="return false;" aria-label="YouTube Link (Platzhalter)">YouTube</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="mark" aria-hidden="true"></div>
+              <div>
+                <div style="font-family:'Fraunces',serif; font-weight:800; letter-spacing:-.01em;">Wings E‑Sports</div>
+                <div class="fine">Clan Website • Designed als Single‑File HTML (leicht zu hosten)</div>
+              </div>
+            </div>
+            <p class="fine" style="margin:12px 0 0;">
+              © <span id="year"></span> Wings E‑Sports. Alle Rechte vorbehalten.
+              <br/>Impressum/Datenschutz kannst du hier ergänzen, wenn ihr öffentlich hostet.
+            </p>
+          </div>
+
+          <div>
+            <div style="font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--muted);">Quick Edit</div>
+            <p class="fine" style="margin:10px 0 0;">
+              Hintergrundfarben/Look: <code>:root</code> → <code>--bg0</code>, <code>--bg1</code>, <code>--accent</code>, <code>--accent2</code>.
+              <br/>Roster: Abschnitt <b>#roster</b>.
+              <br/>Discord-Link: Abschnitt <b>#contact</b>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
-    // Jahr automatisch setzen
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Drawer (Mobile Menü)
-    const drawer = document.getElementById("drawer");
-    const menuBtn = document.getElementById("menuBtn");
-    const closeBtn = document.getElementById("closeBtn");
-    const backdrop = document.getElementById("backdrop");
+    // Drawer
+    const drawer = document.getElementById('drawer');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const backdrop = document.getElementById('backdrop');
 
-    function openDrawer() {
-      drawer.setAttribute("aria-hidden", "false");
-      menuBtn.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
+    function openDrawer(){
+      drawer.setAttribute('aria-hidden','false');
+      menuBtn.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
     }
-    function closeDrawer() {
-      drawer.setAttribute("aria-hidden", "true");
-      menuBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+    function closeDrawer(){
+      drawer.setAttribute('aria-hidden','true');
+      menuBtn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
     }
-    menuBtn?.addEventListener("click", openDrawer);
-    closeBtn?.addEventListener("click", closeDrawer);
-    backdrop?.addEventListener("click", closeDrawer);
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && drawer.getAttribute("aria-hidden") === "false") closeDrawer();
+    menuBtn?.addEventListener('click', openDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') closeDrawer();
     });
 
-    // Drawer schließen bei Navigation
-    drawer.querySelectorAll('a[href^="#"]').forEach((a) => {
-      a.addEventListener("click", () => closeDrawer());
+    // Close drawer on navigation click
+    drawer.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', () => closeDrawer());
     });
 
-    // Reveal Animation beim Scrollen
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const revealEls = Array.from(document.querySelectorAll(".reveal"));
-    if (!prefersReduced) {
+    // Reveal on scroll
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    if(!prefersReduced){
       const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
             io.unobserve(entry.target);
           }
         });
       }, { threshold: 0.14 });
       revealEls.forEach((el, i) => {
-        if (!el.style.animationDelay) el.style.animationDelay = i * 0.03 + "s";
+        // give a tiny stagger if no inline delay exists
+        if(!el.style.animationDelay) el.style.animationDelay = (i * 0.03) + 's';
         io.observe(el);
       });
     } else {
-      revealEls.forEach((el) => el.classList.add("in"));
+      revealEls.forEach(el => el.classList.add('in'));
     }
 
-    // Demo Tryout Formular (nur Frontend)
-    const form = document.getElementById("tryoutForm");
-    const status = document.getElementById("formStatus");
-    form?.addEventListener("submit", (e) => {
+    // Demo tryout form
+    const form = document.getElementById('tryoutForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const name = (data.get("name") || "").toString().trim();
-      const game = (data.get("game") || "").toString().trim();
-      status.style.color = "var(--accent2)";
-      status.textContent = `Danke, ${name || "Spieler"}! Bewerbung für ${game || "das Tryout"} ist (Demo) gespeichert. Wir melden uns über Discord.`;
+      const name = (data.get('name') || '').toString().trim();
+      const game = (data.get('game') || '').toString().trim();
+      status.style.color = 'var(--accent2)';
+      status.textContent = `Danke, ${name || 'Spieler'}! Bewerbung für ${game || 'das Tryout'} ist (Demo) gespeichert. Wir melden uns über Discord.`;
       form.reset();
     });
   </script>
